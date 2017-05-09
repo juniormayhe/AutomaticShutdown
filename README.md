@@ -1,7 +1,3 @@
-# AutomaticShutdown
-Allow IT administrators to quickly deploy a Windows shutdown policy over a network with a shared configuration file.
-
-
 ```
      /\        | |                      | | (_)     
     /  \  _   _| |_ ___  _ __ ___   __ _| |_ _  ___ 
@@ -14,9 +10,8 @@ Allow IT administrators to quickly deploy a Windows shutdown policy over a netwo
   ____) | | | | |_| | || (_| | (_) \ V  V /| | | |  
  |_____/|_| |_|\__,_|\__\__,_|\___/ \_/\_/ |_| |_|  
 ```
-
-
-
+# AutomaticShutdown
+Allow IT administrators to quickly deploy a Windows shutdown policy over a network with a shared configuration file.
 
 ## Deploy Instructions
 
@@ -24,15 +19,15 @@ Allow IT administrators to quickly deploy a Windows shutdown policy over a netwo
 
 * In each computer, deploy AS.exe, KeepAliveAS.exe and AS.config
 	
-* In each computer edit AS.config for changing the GLOBAL_CONFIGURATOR. It should point to a file name shared in your network, which will be visible for all computers. I.e.:
+* In each computer edit AS.config for changing the `GLOBAL_CONFIGURATOR`. It should point to a file name shared in your network, which will be visible for all computers. I.e.:
 ```
 <add key="GLOBAL_CONFIGURATOR" value="\\A-REMOTE-HOST\SHARED-FOLDER\as.global.cfg"/>
 ```
 
-* Make sure all computers have read right over network for shared configuration file \\A-REMOTE-HOST\SHARED-FOLDER\
+* Make sure all computers have read right over network for shared configuration file `\\A-REMOTE-HOST\SHARED-FOLDER\`
 	
-* Edit the global configuration file \\A-REMOTE-HOST\SHARED-FOLDER\as.global.cfg and add a shutdown policy configuration for all computers:
-```
+* Edit the global configuration file `\\A-REMOTE-HOST\SHARED-FOLDER\as.global.cfg` and add a shutdown policy configuration for all computers:
+```ini
 //LIMIT HOUR can be: 10PM, 10 PM OR 22 
 LIMIT HOUR = 10PM
 
@@ -48,7 +43,7 @@ SHUTDOWN ENABLED = Y
 //NAME OF HOSTNAMES WHICH SHUTDOWN WILL NOT BE EXECUTED can be: YOUR-COMPUTER ANOTHER-HOSTNAME or YOUR-COMPUTER, ANOTHER-HOSTNAME
 IGNORE HOSTNAMES = LOCALHOST
 ```
-* In each computer, add a scheduled task in Windows for running KeepAliveAS.exe at Windows start up; or add it exe into your logon script.
+* In each computer, add a scheduled task in Windows for running `KeepAliveAS.exe` at Windows start up; or add it exe into your logon script.
 
 * When a shutdown warning appears, you set a local shutdown policy in a specific computer by pressing [SHIFT] + [C] + [P]
 
