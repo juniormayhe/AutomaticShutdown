@@ -15,9 +15,9 @@ Allow IT administrators to quickly deploy a Windows shutdown policy over a netwo
 
 ## Deploy Instructions
 
-* If you want to automatically shutdown computers running Windows in your Network, make sure that all computers have .NET Framework 4.6.1 installed.
+* If you want to automatically shutdown computers running Windows in your Network, make sure that all computers have [.NET Framework 4.6.1 installed](https://www.microsoft.com/en-us/download/details.aspx?id=49982).
 
-* In each computer, deploy AS.exe, KeepAliveAS.exe and AS.config
+* In each computer, deploy `AS.exe`, `KeepAliveAS.exe` and `AS.config`
 	
 * In each computer edit AS.config for changing the `GLOBAL_CONFIGURATOR`. It should point to a file name shared in your network, which will be visible for all computers. I.e.:
 ```
